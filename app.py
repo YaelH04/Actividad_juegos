@@ -3,6 +3,7 @@ from models import db, Juego, User
 import controlador_juegos
 from auth import auth
 from flask_login import LoginManager, login_required
+from api import api_bp
 
 app = Flask(__name__)
 
@@ -17,19 +18,12 @@ login_manager.login_view = 'auth.login'
 login_manager.login_message = 'Por favor, inicia sesión para acceder a esta página.'
 login_manager.session_protection = 'strong'
 
-# Función callback para cargar el usuario de la sesión
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
 app.register_blueprint(auth, url_prefix='/auth')
-
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
-
-
-# Rutas publicas
+app.register_blueprint(api_bp, url_prefix='/api')
 @app.route("/")
 @app.route("/juegos")
 def juegos():

@@ -1,0 +1,70 @@
+# ==================================================
+# Pruebas para la API de Juegos
+# ==================================================
+# Para ejecutar estas pruebas en VS Code, instala la extensión "REST Client".
+# Luego, puedes hacer clic en "Send Request" sobre cada petición.
+
+# --- Variables ---
+# Define la URL base de la API y un ID de ejemplo.
+# Asegúrate de que el ID exista en tu base de datos para las pruebas de PUT y DELETE.
+@baseUrl = http://127.0.0.1:5000/api
+@juegoId = 1
+@juegoIdInexistente = 999
+
+###
+# 1. OBTENER TODOS LOS JUEGOS (GET)
+# Debería devolver un estado 200 OK y una lista de juegos.
+GET {{baseUrl}}/juegos
+
+###
+# 2. CREAR UN JUEGO NUEVO (POST - Éxito)
+# Debería devolver un estado 201 Created y el objeto del juego creado.
+POST {{baseUrl}}/juegos
+Content-Type: application/json
+
+{
+    "id:": 1,
+    "nombre": "Bloodborne",
+    "descripcion": "Juego de acción y rol de FromSoftware",
+    "precio": 39.99
+}
+
+###
+# 3. CREAR UN JUEGO NUEVO (POST - Error 400)
+# Se envía sin el campo 'precio', que es requerido.
+# Debería devolver un estado 400 Bad Request.
+POST {{baseUrl}}/juegos
+Content-Type: application/json
+
+{
+    "nombre": "Juego Incompleto",
+    "descripcion": "Faltan datos"
+}
+
+###
+# 4. OBTENER UN JUEGO ESPECÍFICO (GET)
+# Debería devolver 200 OK si el juego con @juegoId existe.
+# Debería devolver 404 Not Found si el juego no existe.
+GET {{baseUrl}}/juegos/{{juegoId}}
+
+###
+# 5. ACTUALIZAR UN JUEGO (PUT)
+# Actualiza el precio del juego con @juegoId.
+# Debería devolver 200 OK con el objeto actualizado.
+PUT {{baseUrl}}/juegos/{{juegoId}}
+Content-Type: application/json
+
+{
+    "precio": 45.50
+}
+
+###
+# 6. ELIMINAR UN JUEGO (DELETE)
+# Elimina el juego con @juegoId.
+# Debería devolver 204 No Content.
+DELETE {{baseUrl}}/juegos/{{juegoId}}
+
+###
+# 7. INTENTAR OBTENER UN JUEGO INEXISTENTE (GET - Error 404)
+# Debería devolver 404 Not Found.
+GET {{baseUrl}}/juegos/{{juegoIdInexistente}}
