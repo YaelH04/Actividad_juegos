@@ -2,3 +2,4 @@
 __pycache__/
 *.pyc
 requirements.txt
+api_tests.http
