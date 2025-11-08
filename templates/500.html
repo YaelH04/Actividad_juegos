@@ -1,0 +1,19 @@
+{% extends "maestra.html" %}
+{% block title %}Error del Servidor{% endblock %}
+
+{% block contenido %}
+<section class="hero is-light is-fullheight-with-navbar">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title is-1">
+                Error 500 - Error Interno del Servidor
+            </h1>
+            <h2 class="subtitle is-3">
+                ¡Ups! Algo salió mal de nuestro lado.
+            </h2>
+            <p class="is-size-5 mb-4">Ya hemos sido notificados del problema y estamos trabajando para solucionarlo. Por favor, intenta de nuevo más tarde.</p>
+            <a href="{{ url_for('juegos') }}" class="button is-primary is-large">Volver al inicio</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
