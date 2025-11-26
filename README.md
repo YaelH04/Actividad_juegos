@@ -1,6 +1,6 @@
 1.  **Modelos (`test_models.py`)**:
     *   Probé que se puedan crear juegos en la base de datos correctamente.
-    *   Usé una base de datos en memoria (SQLite) para no ensuciar la base de datos real.
+    *   Usé una base de datos en memoria (SQLite) para no usar la base de datos real.
 
 2.  **Rutas (`test_routes.py`)**:
     *   `test_index`: Chequé que la página de inicio cargue bien (código 200).
