@@ -1,0 +1,19 @@
+{% extends "maestra.html" %}
+{% block title %}{{ "Petición Incorrecta" }}{% endblock %}
+
+{% block contenido %}
+<section class="hero is-light is-fullheight-with-navbar">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title is-1">
+                Error {{ error.code or "400" }} - {{ error.name or "Petición Incorrecta" }}
+            </h1>
+            <h2 class="subtitle is-3">
+                {{ "Hubo un problema con tu solicitud. Por favor, inténtalo de nuevo." }}
+            </h2>
+            <p class="is-size-5 mb-4">Parece que la dirección a la que intentas acceder no es válida o tu petición tiene un formato incorrecto.</p>
+            <a href="{{ url_for('juegos') }}" class="button is-primary is-large">Volver al inicio</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

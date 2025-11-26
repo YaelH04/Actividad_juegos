@@ -1,0 +1,21 @@
+2025-11-07 17:09:05,592 ERROR: Exception on /test/500 [GET] [in /home/yael/Documentos/EntornoVirtual/Juegos/.venv/lib/python3.12/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/yael/Documentos/EntornoVirtual/Juegos/.venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yael/Documentos/EntornoVirtual/Juegos/.venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yael/Documentos/EntornoVirtual/Juegos/.venv/lib/python3.12/site-packages/flask_restful/__init__.py", line 298, in error_router
+    return original_handler(e)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/yael/Documentos/EntornoVirtual/Juegos/.venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yael/Documentos/EntornoVirtual/Juegos/.venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yael/Documentos/EntornoVirtual/Juegos/app.py", line 105, in test_500
+    x = 1 / 0
+        ~~^~~
+ZeroDivisionError: division by zero
