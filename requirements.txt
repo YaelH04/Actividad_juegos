@@ -1,0 +1,8 @@
+flask
+flask-sqlalchemy
+pymysql
+flask-login
+werkzeug
+flask-wtf
+flask-restful
+email-validator
